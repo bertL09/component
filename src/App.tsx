@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Booking from './components/Booking';
+import Gallery from './components/Gallery';
+import Home from './components/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+      <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/gallery" element={<Gallery />} >
+            {/* <Navbar/> */}
+            {/* <Route path="/gallery/sb1" element={<Gallery />} />
+            <Route path="/gallery/sb2" element={<Gallery />} />
+            <Route path="/gallery/sb3" element={<Gallery />} /> */}
+          </Route>
+        </Routes>
+        <Outlet/>
+      </BrowserRouter>
+    );
+  }
 }
-
-export default App;
