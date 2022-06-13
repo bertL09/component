@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Booking from './components/Booking';
+import Deserts from './components/Deserts';
 import Gallery from './components/Gallery';
 import Home from './components/Home';
+import DesertsItem from './components/DesertsItem';
+import ErrorPage from './components/ErrorPage';
 
 export default class App extends React.Component {
   render() {
@@ -12,13 +14,10 @@ export default class App extends React.Component {
       <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/gallery" element={<Gallery />} >
-            {/* <Navbar/> */}
-            {/* <Route path="/gallery/sb1" element={<Gallery />} />
-            <Route path="/gallery/sb2" element={<Gallery />} />
-            <Route path="/gallery/sb3" element={<Gallery />} /> */}
-          </Route>
+          <Route path="/deserts" element={<Deserts />} />
+          <Route path='deserts/:desertsId' element={<DesertsItem/>}/>
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path='/*' element={<ErrorPage/>}/>
         </Routes>
         <Outlet/>
       </BrowserRouter>

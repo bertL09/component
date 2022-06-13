@@ -1,12 +1,13 @@
 import * as React from 'react';
 import type { RouteObject } from 'react-router-dom';
-import { Outlet, Link, useRoutes, useParams, Route, useMatch } from 'react-router-dom';
+import { Link, useRoutes} from 'react-router-dom';
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import Gallery from './Gallery';
-import Home from './Home';
-import Booking from './Booking';
+import Deserts from './Deserts';
 import App from '../App';
-import "./css/Navbar.css";
+import "./Navbar.css";
+import NavLayout from './NavLayout';
+import ErrorPage from './ErrorPage';
 
 const Navbar = () => {
   let routes: RouteObject[] = [
@@ -15,8 +16,9 @@ const Navbar = () => {
       element: <NavLayout />,
       children: [
         { index: true, element: <App /> },
-        { path: '/booking', index: true, element: <Booking /> },
+        { path: '/deserts', index: true, element: <Deserts /> },
         { path: '/gallery', index: true, element: <Gallery /> },
+        { path: '/*', index: true, element: <ErrorPage /> }
       ],
     },
   ];
@@ -37,51 +39,4 @@ const Navbar = () => {
   );
 }
 
-function NavLayout() {
-
-  return (
-    <nav className="main-menu">
-      <ul>
-        <li className="main_menu_item">
-          <Link to="/">
-            <i className="fa fa-home fa-lg"></i>
-            <span className="nav-text">Home</span>
-          </Link>
-        </li>
-        <li className="main_menu_item">
-          <Link to="/booking">
-            <i className="fa fa-truck"></i>
-            <span className="nav-text">Booking</span>
-          </Link>
-        </li>
-        <li id="li_gallery" className="main_menu_item">
-          <Link to="/gallery" >
-            <i className="fa fa-camera-retro"></i>
-            <span className="nav-text">Galllery</span>
-          </Link>
-          <ul className='submenu'>
-            <li className="submenu_item">
-              <Link to="/gallery/sb1">
-                <i className="fa fa-truck"></i>
-                <span className="nav-text">subpage 1</span>
-              </Link>
-            </li>
-            <li className="submenu_item">
-              <Link to="/gallery/sb2">
-                <i className="fa fa-truck"></i>
-                <span className="nav-text">subpage 2</span>
-              </Link>
-            </li>
-            <li className="submenu_item">
-              <Link to="/gallery/sb3">
-                <i className="fa fa-truck"></i>
-                <span className="nav-text">subpage 3</span>
-              </Link>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  );
-}
 export default Navbar;
