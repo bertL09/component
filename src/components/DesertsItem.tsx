@@ -1,4 +1,3 @@
-import React from 'react';
 import './Deserts.css';
 import 'react-router';
 import { useParams } from 'react-router-dom';

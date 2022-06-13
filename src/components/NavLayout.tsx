@@ -1,8 +1,6 @@
-import { Link, useRoutes} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-
-const NavLayout= () => {
-
+function NavLayout () {
   return (
     <nav className="main-menu">
       <ul>

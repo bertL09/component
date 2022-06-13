@@ -9,7 +9,7 @@ import "./Navbar.css";
 import NavLayout from './NavLayout';
 import ErrorPage from './ErrorPage';
 
-const Navbar = () => {
+function Navbar () {
   let routes: RouteObject[] = [
     {
       path: '/',

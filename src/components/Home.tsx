@@ -1,10 +1,8 @@
-import React from 'react';
-import Navbar from './Navbar';
 import "./Home.css";
-const Home = () =>{
+const Home = () => {
   return (
     <div className='main_content'>
-      <h1> TEST </h1>
+      <h1> HOME PAGE </h1>
     </div>
   );
 }
