@@ -1,0 +1,17 @@
+.form_holder{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.form_item_holder{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1%;
+}
+
+.form_input_button{
+  width: 15%;
+  /* float: right; */
+}

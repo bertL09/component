@@ -10,20 +10,7 @@ import NavLayout from './NavLayout';
 import ErrorPage from './ErrorPage';
 
 function Navbar () {
-  let routes: RouteObject[] = [
-    {
-      path: '/',
-      element: <NavLayout />,
-      children: [
-        { index: true, element: <App /> },
-        { path: '/deserts', index: true, element: <Deserts /> },
-        { path: '/gallery', index: true, element: <Gallery /> },
-        { path: '/*', index: true, element: <ErrorPage /> }
-      ],
-    },
-  ];
 
-  let element = useRoutes(routes);
   const breadcrumbs = useBreadcrumbs();
 
   return (
@@ -34,7 +21,7 @@ function Navbar () {
           {index < breadcrumbs.length - 1 && " -> "}
         </div>
       ))}
-      {element}
+      {<NavLayout/>}
     </div>
   );
 }

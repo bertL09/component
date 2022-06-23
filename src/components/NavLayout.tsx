@@ -1,6 +1,27 @@
-import { Link } from 'react-router-dom';
+import { Route, RouteObject } from 'react-router-dom';
+import { Link, useRoutes} from 'react-router-dom';
+import Gallery from './Gallery';
+import Deserts from './Deserts';
+import ErrorPage from './ErrorPage';
+import App from '../App';
 
 function NavLayout () {
+
+  let routes: RouteObject[] = [
+    {
+      path: '/',
+      element: <NavLayout />,
+      children: [
+        { index: true, element: <App /> },
+        { path: '/deserts', index: true, element: <Deserts /> },
+        { path: '/gallery', index: true, element: <Gallery /> },
+        { path: '/*', index: true, element: <ErrorPage /> }
+      ],
+    },
+  ];
+
+  let element = useRoutes(routes);
+
   return (
     <nav className="main-menu">
       <ul>
